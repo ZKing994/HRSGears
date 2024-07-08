@@ -173,9 +173,11 @@ function SimulateGears()
         if Config.vehicles[hash] ~= nil then
             if selectedgear ~= 0 and selectedgear ~= nil  then
                 if numgears ~= nil and selectedgear ~= nil then
-                    ratio = Config.vehicles[hash][numgears][selectedgear] * (1/0.9)
-                else
-		    ratio = Config.gears[numgears][selectedgear] * (1/0.9)
+		    if Config.vehicles[hash][numgears] ~= nil then
+                        ratio = Config.vehicles[hash][numgears][selectedgear] * (1/0.9)
+		    else
+		        ratio = Config.gears[numgears][selectedgear] * (1/0.9)
+                    end
                 end
             end
         
@@ -183,10 +185,7 @@ function SimulateGears()
             if selectedgear ~= 0 and selectedgear ~= nil then
                 if numgears ~= nil and selectedgear ~= nil then
                     ratio = Config.gears[numgears][selectedgear] * (1/0.9)
-                else
-                
-                end
-            
+                end            
             end
         end
 
